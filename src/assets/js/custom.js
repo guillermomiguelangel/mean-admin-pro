@@ -44,7 +44,9 @@ const customInitFunction = ()=>{
         // ============================================================== 
         // Theme options
         // ==============================================================     
-        $(".sidebartoggler").on('click', function() {
+        $(".sidebartoggler").on('click', function(e) {
+            e.preventDefault();
+            console.log(".sidebartoggler");
             if ($("body").hasClass("mini-sidebar")) {
                 $("body").trigger("resize");
                 $("body").removeClass("mini-sidebar");
@@ -59,7 +61,9 @@ const customInitFunction = ()=>{
         });
 
         // this is for close icon when navigation open in mobile view
-        $(".nav-toggler").click(function() {
+        $(".nav-toggler").click(function(e) {
+            e.preventDefault();
+            console.log(".nav-toggler");
             $("body").toggleClass("show-sidebar");
             $(".nav-toggler i").toggleClass("ti-menu");
             $(".nav-toggler i").addClass("ti-close");
@@ -85,20 +89,20 @@ const customInitFunction = ()=>{
         // ============================================================== 
         // Auto select left navbar
         // ============================================================== 
-        $(function() {
-            var url = window.location;
-            var element = $('ul#sidebarnav a').filter(function() {
-                return this.href == url;
-            }).addClass('active').parent().addClass('active');
-            while (true) {
-                if (element.is('li')) {
-                    element = element.parent().addClass('in').parent().addClass('active');
-                } else {
-                    break;
-                }
-            }
+        // $(function() {
+        //     var url = window.location;
+        //     var element = $('ul#sidebarnav a').filter(function() {
+        //         return this.href == url;
+        //     }).addClass('active').parent().addClass('active');
+        //     while (true) {
+        //         if (element.is('li')) {
+        //             element = element.parent().addClass('in').parent().addClass('active');
+        //         } else {
+        //             break;
+        //         }
+        //     }
 
-        });
+        // });
         // ============================================================== 
         //tooltip
         // ============================================================== 
